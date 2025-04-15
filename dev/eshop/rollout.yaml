@@ -23,7 +23,7 @@ spec:
     spec:
       containers:
       - name: eshop-webapp
-        image: pro690finalacr.azurecr.io/eshoponweb/web:4
+        image: pro690finalacr.azurecr.io/eshoponweb/web:6
         ports:
         - containerPort: 80
         env:
