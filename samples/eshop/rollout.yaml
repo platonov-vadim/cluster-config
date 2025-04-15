@@ -1,0 +1,35 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Rollout
+metadata:
+  name: eshop-webapp
+  namespace: dev
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: eshop-webapp
+  strategy:
+    canary:
+      steps:
+      - setWeight: 20
+      - pause: { duration: 1m }
+      - setWeight: 50
+      - pause: { duration: 2m }
+      - setWeight: 100
+  template:
+    metadata:
+      labels:
+        app: eshop-webapp
+    spec:
+      containers:
+      - name: eshop-webapp
+        image: pro690finalacr.azurecr.io/eshoponweb/web:6
+        ports:
+        - containerPort: 80
+        env:
+        - name: ASPNETCORE_ENVIRONMENT
+          value: "Docker"
+        - name: ASPNETCORE_HTTP_PORTS
+          value: "80"
+        - name: UseOnlyInMemoryDatabase
+          value: "true"
