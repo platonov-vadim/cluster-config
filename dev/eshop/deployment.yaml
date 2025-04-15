@@ -15,6 +15,6 @@ spec:
     spec:
       containers:
       - name: eshop-webapp
-        image: your-registry/eshop-webapp:latest
+        image: pro690finalacr.azurecr.io/eshoponweb/web:5
         ports:
         - containerPort: 80
