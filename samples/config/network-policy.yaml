@@ -4,7 +4,6 @@ metadata:
   name: eshop-webapp-allow-ingress
   namespace: dev
 spec:
-  # This policy applies to all pods with label "app: eshop-webapp" in the specified namespace
   podSelector:
     matchLabels:
       app: eshop-webapp
