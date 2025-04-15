@@ -1,13 +1,21 @@
 apiVersion: apps/v1
-kind: Deployment
+kind: Rollout
 metadata:
   name: eshop-webapp
   namespace: dev
 spec:
-  replicas: 2
+  replicas: 3
   selector:
     matchLabels:
       app: eshop-webapp
+  strategy:
+    canary:
+      steps:
+      - setWeight: 20
+      - pause: { duration: 1m }
+      - setWeight: 50
+      - pause: { duration: 2m }
+      - setWeight: 100
   template:
     metadata:
       labels:
