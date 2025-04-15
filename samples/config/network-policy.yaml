@@ -1,0 +1,20 @@
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: eshop-webapp-allow-ingress
+  namespace: dev
+spec:
+  # This policy applies to all pods with label "app: eshop-webapp" in the specified namespace
+  podSelector:
+    matchLabels:
+      app: eshop-webapp
+  policyTypes:
+  - Ingress
+  ingress:
+  - from:
+    - podSelector: {}
+    ports:
+    - protocol: TCP
+      port: 80
+    - protocol: TCP
+      port: 8080
