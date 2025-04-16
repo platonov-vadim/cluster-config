@@ -26,10 +26,3 @@ spec:
         image: pro690finalacr.azurecr.io/eshoponweb/web:6
         ports:
         - containerPort: 80
-        env:
-        - name: ASPNETCORE_ENVIRONMENT
-          value: "Docker"
-        - name: ASPNETCORE_HTTP_PORTS
-          value: "80"
-        - name: UseOnlyInMemoryDatabase
-          value: "true"
