@@ -19,13 +19,8 @@ spec:
         - analysis:
             templates:
               - templateName: eshop-webapp-health-check
-        - setWeight: 30
-        - pause: { duration: 2m }
-        - analysis:
-            templates:
-              - templateName: eshop-webapp-health-check
-        - setWeight: 60
-        - pause: { duration: 3m }
+        - setWeight: 50
+        - pause: { duration: 1m }
         - analysis:
             templates:
               - templateName: eshop-webapp-health-check
@@ -40,13 +35,6 @@ spec:
         image: pro690finalacr.azurecr.io/eshoponweb/web:6
         ports:
         - containerPort: 80
-        env:
-        - name: ASPNETCORE_ENVIRONMENT
-          value: "Docker"
-        - name: ASPNETCORE_HTTP_PORTS
-          value: "80"
-        - name: UseOnlyInMemoryDatabase
-          value: "true"
         readinessProbe:
           httpGet:
             path: /
