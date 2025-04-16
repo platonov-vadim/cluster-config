@@ -1,0 +1,16 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AnalysisTemplate
+metadata:
+  name: eshop-webapp-health-check
+  namespace: prod
+spec:
+  metrics:
+  - name: webapp-http-check
+    interval: 20s
+    count: 3
+    failureLimit: 1
+    successCondition: result == "200"
+    provider:
+      web:
+        url: "http://eshop-webapp.dev.svc.cluster.local/"
+        timeoutSeconds: 5
