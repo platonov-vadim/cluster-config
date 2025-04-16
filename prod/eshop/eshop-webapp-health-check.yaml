@@ -6,8 +6,8 @@ metadata:
 spec:
   metrics:
   - name: webapp-http-check
-    interval: 20s
-    count: 3
+    interval: 5s
+    count: 10
     failureLimit: 1
     successCondition: result == "200"
     provider:
