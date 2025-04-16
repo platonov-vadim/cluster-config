@@ -6,11 +6,11 @@ metadata:
 spec:
   metrics:
   - name: webapp-http-check
-    interval: 5s
-    count: 10
+    interval: 20s
+    count: 3
     failureLimit: 1
     successCondition: result == "200"
     provider:
       web:
-        url: "http://eshop-webapp.prod.svc.cluster.local/"
-        timeoutSeconds: 5
+        url: "http://eshop-webapp.prod.svc.cluster.local/health"
+        timeoutSeconds: 10
