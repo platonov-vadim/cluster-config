@@ -12,5 +12,5 @@ spec:
     successCondition: result == "200"
     provider:
       web:
-        url: "http://eshop-webapp.prod.svc.cluster.local/health"
+        url: "http://eshop-webapp.prod.svc.cluster.local/"
         timeoutSeconds: 10
